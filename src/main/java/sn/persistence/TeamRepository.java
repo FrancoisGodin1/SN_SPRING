@@ -1,8 +1,9 @@
-package sn.repository;
+package sn.persistence;
 
-import sn.domain.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import sn.domain.Team;
 
 @Repository
-public interface UserRepository extends CrudRepository<User, Long> {}
+public interface TeamRepository extends CrudRepository<Team, Long> {
+}
