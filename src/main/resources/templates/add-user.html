@@ -1,9 +1,0 @@
-<form action="#" th:action="@{/addPlayer}" th:object="${player}" method="post">
-    <label for="lastName">Last Name</label>
-    <input type="text" th:field="*{lastName}" id="lastName" placeholder="LastName">
-    <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
-    <label for="birthDate">BirthDate</label>
-    <input type="text" th:field="*{birthDate}" id="birthDate" placeholder="BirthDate">
-    <span th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}"></span>
-    <input type="submit" value="Add Player">
-</form>

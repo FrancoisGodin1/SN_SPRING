@@ -1,25 +1,36 @@
-♦<div th:switch="${players}">
-    <h2 th:case="null">No players yet!</h2>
+<div th:switch="${players}" xmlns:th="http://www.w3.org/1999/xhtml">
+    <h2 th:case="null">No player yet!</h2>
     <div th:case="*">
+
         <h2>Players</h2>
-        <table>
+        <a href="/addPlayer">Add new Player</a>
+        <table class="table">
             <thead>
             <tr>
-                <th>LastName</th>
-                <th>birthDate</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Number</th>
+                <th scope="col">Team</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="player : ${players}">
-                <td th:text="${player.lastName}"></td>
-                <td th:text="${player.birthDate}"></td>
-                <td><a th:href="@{/edit/{id}(id=${player.id})}">Edit</a></td>
-                <td><a th:href="@{/delete/{id}(id=${player.id})}">Delete</a></td>
+            <tr th:each="player: ${players}">
+                <th scope="row" th:text="${player.lastName}"></th>
+                <th scope="row" th:text="${player.birthDate}"></th>
+                <th scope="row" th:text="${player.number}"></th>
+                <th scope="row" th:text="${player?.team?.name}"></th>
+                <th>
+                    <a th:href="@{'/set-player/' + ${player.playerId}}">
+                        Set Player
+                    </a>
+                </th>
+                <th>
+                    <form action="#" th:action="@{'/deletedPlayer/' + ${player.playerId}}" method="post">
+                        <input type="submit" value="DeletePlayer">
+                    </form>
+                </th>
             </tr>
             </tbody>
         </table>
     </div>
-    <p><a href="/addPlayer">Add a new player</a></p>
 </div>

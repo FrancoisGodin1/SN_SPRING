@@ -23,9 +23,11 @@ public class Team {
     @OneToMany(mappedBy = "team")
     private List<Player> players;
 
-    public Team(String name, String city) {
+    public Team(String name, String city,int ranking, ArrayList<Player> players) {
         this.name = name;
         this.city = city;
+        this.ranking = ranking;
+        this.players = players;
     }
 
     public Team() { }

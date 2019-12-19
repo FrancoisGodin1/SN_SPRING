@@ -1,0 +1,15 @@
+<form action="#" th:action="@{/savePlayer}" th:object="${player}" method="post" xmlns:th="http://www.w3.org/1999/xhtml">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{lastName}" id="name" placeholder="LastName">
+    <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+
+    <label for="date">Date</label>
+    <input type="text" th:field="*{birthDate}" id="date" placeholder="BirthDate">
+    <span th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}"></span>
+
+    <label for="number">Number</label>
+    <input type="text" th:field="*{number}" id="number" placeholder="Number">
+    <span th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></span>
+
+    <input type="submit" value="Add Player">
+</form>
